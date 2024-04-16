@@ -1,0 +1,22 @@
+{
+  "name": "esm-mock-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --import tsx index.test.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "quibble": "^0.9.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7"
+  }
+}
