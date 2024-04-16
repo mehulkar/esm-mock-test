@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node --import tsx index.test.ts"
+    "test": "node --import quibble --import tsx index.test.ts"
   },
   "author": "",
   "license": "ISC",
