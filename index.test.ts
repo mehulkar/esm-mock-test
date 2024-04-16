@@ -4,25 +4,20 @@ import { strict as assert } from "node:assert";
 import quibble from "quibble";
 
 test("does the mock work", async () => {
-  const mockResponse = "im so fake";
-  const childProcessCalls: Array<string> = [];
-  const childProcessExports = {
+  const mockResponse = "hi mock";
+
+  const spy: Array<string> = [];
+  const mock = {
     execSync(arg: string) {
-      console.log("calling mock execSYnc!!");
-      childProcessCalls.push(arg);
+      spy.push(arg);
       return mockResponse;
     },
   };
 
-  console.log("mocking node:child_process");
-  await quibble.esm(
-    "node:child_process",
-    childProcessExports,
-    childProcessExports
-  );
+  await quibble.esm("node:child_process", mock, mock);
 
   const { hi } = await import(".");
 
-  const result = hi();
+  const result = hi("colin!");
   assert.equal(result, mockResponse);
 });
